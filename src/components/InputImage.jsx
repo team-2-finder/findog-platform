@@ -1,12 +1,12 @@
 import React, { useState, useRef } from "react";
-import { DisableMain, MainColor } from "./";
+import { DisableMain, MainColor } from ".";
 import { DogInput } from "../images";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 // import Spinner from "react-activity/dist/Spinner"; // spinner효과를 사용하기 위한 코드
 // import "react-activity/dist/Spinner.css"; //spinner효과를 사용하기 위한 코드
 
-const Research = () => {
+const InputImage = () => {
   const [selectedImage, setSelectedImage] = useState(null); //이미지 선택 저장
   const [imgBase64, setImgBase64] = useState(""); // 파일 base64
   const inputREF = useRef(); //요소 선택 저장
@@ -54,7 +54,9 @@ const Research = () => {
         )}
       </S.UploadBox>
       {selectedImage ? (
-        <S.NextpageBtn>강아지 찾기</S.NextpageBtn>
+        <Link to="/research" style={{ textDecoration: "none" }}>
+          <S.NextpageBtn>강아지 찾기</S.NextpageBtn>
+        </Link>
       ) : (
         <S.NextpageBtnNon>강아지 찾기</S.NextpageBtnNon>
       )}
@@ -62,7 +64,7 @@ const Research = () => {
   );
 };
 
-export default Research;
+export default InputImage;
 
 const S = {
   //전체화면
@@ -119,7 +121,7 @@ const S = {
     padding: 24.5px 257px;
     text-align: center;
     margin-bottom: 20px;
-    cursor: pointer;
+    /* cursor: pointer; */
     -webkit-tap-highlight-color: transparent;
   `,
 

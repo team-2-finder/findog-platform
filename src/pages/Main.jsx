@@ -1,13 +1,13 @@
 import React from "react";
 import styled from "styled-components";
-import { Research, Header } from "../components";
+import { InputImage, Header } from "../components";
 
 const Main = () => {
   return (
     <>
       <Header />
       <S.Container>
-        <Research />
+        <InputImage />
       </S.Container>
     </>
   );
