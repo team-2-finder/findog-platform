@@ -1,28 +1,28 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Header } from "../components";
-import { styled } from "styled-components";
+import styled from "styled-components";
 
 const Research = () => {
-  const [list, setList] = useState([]);
-  async function getData() {
-    try {
-      const response = await axios.get("ex.url", {
-        // params:{
-        //  happenDt: 접수일
-        //  kindCd: //품종
-        //  sexCd: 성별
-        //  neuterYn : 중성화 여부
-        // }
-      });
-      console.log(response);
-    } catch (error) {
-      console.error(error);
-    }
-  }
-  useEffect(() => {
-    // getData();
-  }, []);
+  // const [list, setList] = useState([]);
+  // async function getData() {
+  //   try {
+  //     const response = await axios.get("ex.url", {
+  //       // params:{
+  //       //  happenDt: 접수일
+  //       //  kindCd: //품종
+  //       //  sexCd: 성별
+  //       //  neuterYn : 중성화 여부
+  //       // }
+  //     });
+  //     console.log(response);
+  //   } catch (error) {
+  //     console.error(error);
+  //   }
+  // }
+  // useEffect(() => {
+  //   // getData();
+  // }, []);
 
   return (
     <>
