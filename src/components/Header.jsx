@@ -1,14 +1,21 @@
 import React, { useState, useEffect } from "react";
+import { Logo } from "../images";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
-import { MdPersonOutline } from "react-icons/md";
+// import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
     <S.container>
       <S.logoBox>
-        <div>adsfasdf</div>
-        <Link to="/">{/* <img src={chacharentcar} alt="logo" /> */}</Link>
+        <div
+          style={{ marginLeft: "120px", cursor: "pointer" }}
+          onClick={() => {
+            document.location.href = "/";
+            document.location.reload();
+          }}
+        >
+          <img src={Logo} alt="logo" />
+        </div>
       </S.logoBox>
     </S.container>
   );
@@ -19,13 +26,13 @@ const S = {
     display: flex;
     position: sticky;
     top: 0;
-    padding-inline: 24px;
-    padding-block: 30px;
+    /* padding-inline: 32px; */
+    padding-block: 13px;
     flex: 1;
     align-items: center;
     z-index: 999;
-    /* background-color: #fff; */
-    background-color: pink;
+    background-color: #fff;
+    /* background-color: pink; */
   `,
 
   logoBox: styled.div`
