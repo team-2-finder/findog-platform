@@ -1,2 +1,3 @@
 import Research from "./Research";
-export { Research };
+import Header from "./Header";
+export { Research, Header };

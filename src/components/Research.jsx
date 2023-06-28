@@ -61,22 +61,23 @@ export default Research;
 const S = {
   //전체화면
   Container: styled.div`
-    /* background-color: #f5f5f5; */
+    width: 100%;
+    padding-block: 16px;
   `,
   Row: styled.div`
     display: flex;
-    height: 100%;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    position: relative;
   `,
 
   UploadBox: styled.div`
     display: flex;
     flex-direction: column;
+    width: 100%;
     align-self: center;
     justify-content: center;
-    box-shadow: 0px 0px 10px #bebfbe;
     @media screen and (max-width: 480px) {
       width: 80vw;
       min-height: 120vw;
@@ -85,16 +86,17 @@ const S = {
   InputArea: styled.input`
     display: none;
   `,
-  UploadBeforeImg: styled.img``,
+  UploadBeforeImg: styled.img`
+    width: 100%;
+  `,
 
   UploadAfterImg: styled.img`
-    width: 540px;
-    height: 560px;
+    width: 50%;
+    height: 90%;
     border-radius: 40px;
     resize: cover;
     align-self: center;
     justify-content: center;
-
     position: absolute;
     top: 10px;
   `,

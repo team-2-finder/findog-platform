@@ -1,8 +1,22 @@
 import React from "react";
-import { Research } from "../components";
+import styled from "styled-components";
+import { Research, Header } from "../components";
 
 const Main = () => {
-  return <Research />;
+  return (
+    <>
+      <Header />
+      <S.Container>
+        <Research />
+      </S.Container>
+    </>
+  );
+};
+
+const S = {
+  Container: styled.div`
+    padding-inline: 120px;
+  `,
 };
 
 export default Main;
