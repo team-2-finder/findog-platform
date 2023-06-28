@@ -36,7 +36,7 @@ const InputImage = () => {
     }, 5000);
   };
   return (
-    <S.Container>
+    <S.Container2>
       <S.UploadBox
         onClick={() => {
           inputREF.current.click();
@@ -93,7 +93,7 @@ const InputImage = () => {
       )}
 
       {isLoading && <Loading />}
-    </S.Container>
+    </S.Container2>
   );
 };
 
@@ -101,7 +101,7 @@ export default InputImage;
 
 const S = {
   //전체화면
-  Container: styled.div`
+  Container2: styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
