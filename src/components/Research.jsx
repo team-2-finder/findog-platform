@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { DogChar, DogInput } from "../images";
+import { DogInput } from "../images";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 // import Spinner from "react-activity/dist/Spinner"; // spinner효과를 사용하기 위한 코드

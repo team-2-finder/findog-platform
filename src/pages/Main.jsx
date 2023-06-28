@@ -1,7 +1,8 @@
 import React from "react";
+import { Research } from "../components";
 
-const Main = () =>{
-    return (<div><p>Hello</p></div>)
-}
+const Main = () => {
+  return <Research />;
+};
 
-export default Main
+export default Main;
