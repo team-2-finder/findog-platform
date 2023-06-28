@@ -16,6 +16,9 @@ const Main = () => {
 const S = {
   Container: styled.div`
     padding-inline: 120px;
+    @media screen and (max-width: 393px) {
+      padding: 0;
+    }
   `,
 };
 

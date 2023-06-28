@@ -1,10 +1,8 @@
 import React, { useState, useRef } from "react";
-import { DisableMain, MainColor } from ".";
-import { DogInput } from "../images";
+import { DisableMain, MainColor } from "./";
+import { DogInput, MobileDogInput } from "../images";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
-// import Spinner from "react-activity/dist/Spinner"; // spinner효과를 사용하기 위한 코드
-// import "react-activity/dist/Spinner.css"; //spinner효과를 사용하기 위한 코드
 
 const InputImage = () => {
   const [selectedImage, setSelectedImage] = useState(null); //이미지 선택 저장
@@ -27,6 +25,8 @@ const InputImage = () => {
     }
   };
 
+  const isMobile = window.innerWidth <= 393;
+
   return (
     <S.Container>
       <S.UploadBox
@@ -44,21 +44,46 @@ const InputImage = () => {
         {/* 이미지를 저장하는 변수에 값이 저장 되면 해당 이미지 렌더링 , 아닐 경우 이미지를 추가하라는 이미지 렌더링 */}
         {selectedImage ? (
           <S.Row>
-            <S.UploadBeforeImg src={DogInput} alt="Dog" />
+            {isMobile ? (
+              <S.UploadBeforeImg src={MobileDogInput} alt="Dog" />
+            ) : (
+              <S.UploadBeforeImg src={DogInput} alt="Dog" />
+            )}
             <S.UploadAfterImg id="srcImg" src={imgBase64} alt="Thumb" />
           </S.Row>
         ) : (
           <S.Row>
-            <S.UploadBeforeImg src={DogInput} alt="Dog" />
+            {isMobile ? (
+              <S.UploadBeforeImg src={MobileDogInput} alt="Dog" />
+            ) : (
+              <S.UploadBeforeImg src={DogInput} alt="Dog" />
+            )}
           </S.Row>
         )}
       </S.UploadBox>
-      {selectedImage ? (
-        <Link to="/research" style={{ textDecoration: "none" }}>
-          <S.NextpageBtn>강아지 찾기</S.NextpageBtn>
-        </Link>
+      {isMobile ? (
+        <>
+          {selectedImage ? (
+            <Link
+              to="/research"
+              style={{ textDecoration: "none", width: "90%" }}
+            >
+              <S.MNextpageBtn>강아지 찾기</S.MNextpageBtn>
+            </Link>
+          ) : (
+            <S.MNextpageBtnNon>강아지 찾기</S.MNextpageBtnNon>
+          )}
+        </>
       ) : (
-        <S.NextpageBtnNon>강아지 찾기</S.NextpageBtnNon>
+        <>
+          {selectedImage ? (
+            <Link to="/research" style={{ textDecoration: "none" }}>
+              <S.NextpageBtn>강아지 찾기</S.NextpageBtn>
+            </Link>
+          ) : (
+            <S.NextpageBtnNon>강아지 찾기</S.NextpageBtnNon>
+          )}
+        </>
       )}
     </S.Container>
   );
@@ -74,6 +99,9 @@ const S = {
     align-items: center;
     width: 100%;
     padding-block: 16px;
+    @media screen and (max-width: 393px) {
+      /* padding: 24px; */
+    }
   `,
   Row: styled.div`
     display: flex;
@@ -89,16 +117,15 @@ const S = {
     width: 100%;
     align-self: center;
     justify-content: center;
-    @media screen and (max-width: 480px) {
-      width: 80vw;
-      min-height: 120vw;
-    }
   `,
   InputArea: styled.input`
     display: none;
   `,
   UploadBeforeImg: styled.img`
     width: 100%;
+    @media screen and (max-width: 393px) {
+      width: 90%;
+    }
   `,
 
   UploadAfterImg: styled.img`
@@ -110,6 +137,13 @@ const S = {
     justify-content: center;
     position: absolute;
     top: 10px;
+    @media screen and (max-width: 393px) {
+      width: 86%;
+      height: 96%;
+      resize: cover;
+      border-radius: 20px;
+      top: 5px;
+    }
   `,
   ///
   NextpageBtn: styled.div`
@@ -120,8 +154,7 @@ const S = {
     font-weight: 700;
     padding: 24.5px 257px;
     text-align: center;
-    margin-bottom: 20px;
-    /* cursor: pointer; */
+
     -webkit-tap-highlight-color: transparent;
   `,
 
@@ -134,6 +167,33 @@ const S = {
     padding: 24.5px 257px;
     text-align: center;
     margin-bottom: 20px;
+    -webkit-tap-highlight-color: transparent;
+  `,
+  ///
+  ///
+  MNextpageBtn: styled.div`
+    background: ${() => MainColor};
+    border-radius: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    padding-block: 16px;
+    width: 100%;
+    text-align: center;
+    margin-top: 24px;
+    -webkit-tap-highlight-color: transparent;
+  `,
+
+  MNextpageBtnNon: styled.div`
+    background: ${() => DisableMain};
+    border-radius: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    padding-block: 16px;
+    margin-top: 24px;
+    width: 90%;
+    text-align: center;
     -webkit-tap-highlight-color: transparent;
   `,
 };
