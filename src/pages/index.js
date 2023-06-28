@@ -1,2 +1,3 @@
 import Main from "./Main";
-export {Main}
+import Research from './Research'
+export {Main,Research}
