@@ -3,7 +3,6 @@ import axios from "axios";
 import { Header } from "../components";
 import { styled } from "styled-components";
 
-
 const Research = () => {
   const [list, setList] = useState([]);
   async function getData() {
@@ -29,7 +28,6 @@ const Research = () => {
     <>
       <Header />
       <S.Container>Research page</S.Container>
-
     </>
   );
 };
