@@ -1,10 +1,13 @@
 import React from "react";
+import styled from "styled-components";
+import { InputImage, Header } from "../components";
 
 const Research = () => {
   return (
-    <div>
+    <>
+      <Header />
       <p>Research page</p>
-    </div>
+    </>
   );
 };
 
