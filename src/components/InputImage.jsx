@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import { DisableMain, MainColor } from "./";
+import { DisableMain, MainColor, Loading } from "./";
 import { DogInput, MobileDogInput } from "../images";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -26,7 +26,15 @@ const InputImage = () => {
   };
 
   const isMobile = window.innerWidth <= 393;
+  const [isLoading, setLoading] = useState(false);
 
+  //임시 타이머
+  const handleLodingAndNavigate = () => {
+    setLoading(true);
+    setTimeout(() => {
+      document.location.href = "/research";
+    }, 5000);
+  };
   return (
     <S.Container>
       <S.UploadBox
@@ -61,15 +69,13 @@ const InputImage = () => {
           </S.Row>
         )}
       </S.UploadBox>
+
       {isMobile ? (
         <>
           {selectedImage ? (
-            <Link
-              to="/research"
-              style={{ textDecoration: "none", width: "90%" }}
-            >
-              <S.MNextpageBtn>강아지 찾기</S.MNextpageBtn>
-            </Link>
+            <S.MNextpageBtn onClick={() => handleLodingAndNavigate()}>
+              강아지 찾기
+            </S.MNextpageBtn>
           ) : (
             <S.MNextpageBtnNon>강아지 찾기</S.MNextpageBtnNon>
           )}
@@ -77,14 +83,16 @@ const InputImage = () => {
       ) : (
         <>
           {selectedImage ? (
-            <Link to="/research" style={{ textDecoration: "none" }}>
-              <S.NextpageBtn>강아지 찾기</S.NextpageBtn>
-            </Link>
+            <S.NextpageBtn onClick={() => handleLodingAndNavigate()}>
+              강아지 찾기
+            </S.NextpageBtn>
           ) : (
             <S.NextpageBtnNon>강아지 찾기</S.NextpageBtnNon>
           )}
         </>
       )}
+
+      {isLoading && <Loading />}
     </S.Container>
   );
 };
@@ -99,9 +107,6 @@ const S = {
     align-items: center;
     width: 100%;
     padding-block: 16px;
-    @media screen and (max-width: 393px) {
-      /* padding: 24px; */
-    }
   `,
   Row: styled.div`
     display: flex;
@@ -178,7 +183,7 @@ const S = {
     font-size: 24px;
     font-weight: 700;
     padding-block: 16px;
-    width: 100%;
+    width: 90%;
     text-align: center;
     margin-top: 24px;
     -webkit-tap-highlight-color: transparent;

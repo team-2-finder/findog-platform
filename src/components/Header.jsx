@@ -10,8 +10,7 @@ const Header = () => {
         <div
           style={{ marginLeft: "120px", cursor: "pointer" }}
           onClick={() => {
-            document.location.href = "/";
-            document.location.reload();
+            window.location.href = "/";
           }}
         >
           <img src={Logo} alt="logo" />
@@ -30,7 +29,7 @@ const S = {
     padding-block: 13px;
     flex: 1;
     align-items: center;
-    z-index: 999;
+    z-index: 3;
     background-color: #fff;
     /* background-color: pink; */
   `,
