@@ -1,3 +1,4 @@
 import Research from "./Research";
 import Header from "./Header";
-export { Research, Header };
+import { MainColor, DisableMain } from "./Colors";
+export { Research, Header, MainColor, DisableMain };

@@ -23,6 +23,7 @@ const S = {
     padding-block: 30px;
     flex: 1;
     align-items: center;
+    z-index: 999;
     /* background-color: #fff; */
     background-color: pink;
   `,

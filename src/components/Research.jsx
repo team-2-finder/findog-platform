@@ -1,4 +1,5 @@
 import React, { useState, useRef } from "react";
+import { DisableMain, MainColor } from "./";
 import { DogInput } from "../images";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
@@ -52,6 +53,11 @@ const Research = () => {
           </S.Row>
         )}
       </S.UploadBox>
+      {selectedImage ? (
+        <S.NextpageBtn>강아지 찾기</S.NextpageBtn>
+      ) : (
+        <S.NextpageBtnNon>강아지 찾기</S.NextpageBtnNon>
+      )}
     </S.Container>
   );
 };
@@ -61,6 +67,9 @@ export default Research;
 const S = {
   //전체화면
   Container: styled.div`
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
     padding-block: 16px;
   `,
@@ -99,5 +108,30 @@ const S = {
     justify-content: center;
     position: absolute;
     top: 10px;
+  `,
+  ///
+  NextpageBtn: styled.div`
+    background: ${() => MainColor};
+    border-radius: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 24.5px 257px;
+    text-align: center;
+    margin-bottom: 20px;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  `,
+
+  NextpageBtnNon: styled.div`
+    background: ${() => DisableMain};
+    border-radius: 20px;
+    color: white;
+    font-size: 24px;
+    font-weight: 700;
+    padding: 24.5px 257px;
+    text-align: center;
+    margin-bottom: 20px;
+    -webkit-tap-highlight-color: transparent;
   `,
 };
