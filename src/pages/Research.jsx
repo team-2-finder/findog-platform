@@ -6,8 +6,6 @@ import styled from "styled-components";
 // import "react-activity/dist/Spinner.css"; //spinner효과를 사용하기 위한 코드
 
 const Research = () => {
-  // https://github.com/leeminq1/politic_test/blob/master/src/pages/Main.js
-  // react에서 google teachable machine 사용 사례 적용 ~ 46라인
   const [selectedImage, setSelectedImage] = useState(null); //이미지 선택 저장
   const [imgBase64, setImgBase64] = useState(""); // 파일 base64
   const inputREF = useRef(); //요소 선택 저장
@@ -63,7 +61,7 @@ export default Research;
 const S = {
   //전체화면
   Container: styled.div`
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5; */
   `,
   Row: styled.div`
     display: flex;
@@ -72,8 +70,6 @@ const S = {
     justify-content: center;
     align-items: center;
   `,
-
-  ////////////////
 
   UploadBox: styled.div`
     display: flex;
@@ -89,13 +85,17 @@ const S = {
   InputArea: styled.input`
     display: none;
   `,
-  UploadBeforeImg: styled.img`
-    /* align-self: center; */
-  `,
+  UploadBeforeImg: styled.img``,
+
   UploadAfterImg: styled.img`
-    width: 560px;
+    width: 540px;
     height: 560px;
+    border-radius: 40px;
     resize: cover;
     align-self: center;
+    justify-content: center;
+
+    position: absolute;
+    top: 10px;
   `,
 };
