@@ -3,10 +3,10 @@ import axios from "axios";
 import {
   Header,
   AnimalCard,
+  MBottomNavBar,
   MHeader,
   DropDown,
   MainColor,
-  MBottomNavBar,
 } from "../components";
 
 import styled from "styled-components";
