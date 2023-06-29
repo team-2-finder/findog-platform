@@ -124,6 +124,9 @@ const S = {
   AnimalContainer: styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    @media screen and (max-width: 393px) {
+      grid-template-columns: 1fr;
+    }
   `,
 };
 

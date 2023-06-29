@@ -29,7 +29,7 @@ const S = {
     width: 408px;
     height: 279px;
     display: grid;
-    /* padding: 20px; */
+
     grid-template-columns: 1fr 1fr;
     background-color: white;
   `,
