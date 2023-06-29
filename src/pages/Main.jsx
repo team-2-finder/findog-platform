@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { DogInput, MobileDogInput } from "../images";
@@ -10,6 +10,7 @@ import {
   MHeader,
   MBottomNavBar,
 } from "../components";
+import axios from "axios";
 
 const Main = () => {
   const [selectedImage, setSelectedImage] = useState(null); //이미지 선택 저장
@@ -33,13 +34,41 @@ const Main = () => {
   const isMobile = window.innerWidth <= 393;
   const [isLoading, setLoading] = useState();
 
+  useEffect(() => {
+    console.log("test", selectedImage);
+  }, [selectedImage]);
+
   //임시 타이머
+  // const navigate = useNavigate();
+  // const handleLodingAndNavigate = () => {
+  //   setLoading(true);
+  //   setTimeout(() => {
+  //     navigate("/similarity");
+  //   }, 5000);
+  // };
+
   const navigate = useNavigate();
   const handleLodingAndNavigate = () => {
     setLoading(true);
-    setTimeout(() => {
-      navigate("/similarity");
-    }, 5000);
+    const formData = new FormData();
+    formData.append("image", selectedImage);
+
+    axios
+      .post("https://findog.buttercrab.net/api/upload-image", formData, {
+        headers: {
+          "Content-Type": "multipart/form-data",
+        },
+      })
+      .then((response) => {
+        // 업로드 성공 후에 수행할 작업
+        setLoading(false);
+        navigate("/similarity");
+      })
+      .catch((error) => {
+        // 업로드 실패 시에 수행할 작업
+        setLoading(false);
+        console.error("Upload failed:", error);
+      });
   };
   return (
     <>
