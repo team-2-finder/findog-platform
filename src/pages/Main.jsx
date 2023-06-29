@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
-import { DogInput, MobileDogInput } from "../images";
+import { DogInput, MobileDogInput, bg2 } from "../images";
 import {
   Header,
   DisableMain,
@@ -144,6 +144,10 @@ const S = {
     @media screen and (max-width: 393px) {
       padding: 0;
     }
+    background-image: url(${bg2});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
   `,
   Container2: styled.div`
     display: flex;

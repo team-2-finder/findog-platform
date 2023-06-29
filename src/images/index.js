@@ -10,7 +10,15 @@ import mgoResearch from "./mgoResearch.svg";
 import mgoImg from "./mgoImg.svg";
 import closeBtn from "./closeBtn.svg";
 import defaultImg from "./defaultImg.svg";
+import bg from "./bg.svg";
+import bg2 from "./bg2.svg";
+import mainImg from "./mainImg.svg";
+import mainSearch from "./mainSearch.svg";
 export {
+  mainSearch,
+  mainImg,
+  bg,
+  bg2,
   DogChar,
   DogInput,
   Logo,

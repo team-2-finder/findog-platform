@@ -8,6 +8,7 @@ import {
   DropDown,
   MainColor,
 } from "../components";
+import { bg2 } from "../images";
 
 import styled from "styled-components";
 import DetailModal from "../components/DetailModal";
@@ -265,10 +266,16 @@ const S = {
     @media screen and (max-width: 393px) {
       padding-inline: 24px;
     }
+    background-image: url(${bg2});
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    /* width: 100%; */
   `,
   HeaderBox: styled.div`
     font-size: 48px;
-    margin-block: 24px;
+    padding-top: 12px;
+    margin-bottom: 12px;
     font-weight: bold;
     @media screen and (max-width: 393px) {
       margin-block: 16px;
