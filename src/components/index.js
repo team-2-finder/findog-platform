@@ -4,6 +4,7 @@ import Loading from "./Loading";
 import { MainColor, DisableMain } from "./Colors";
 import AnimalCard from "./AnimalCard";
 import SimilarityCard from "./SimilarityCard";
+import Label from "./Label";
 export {
   Header,
   MainColor,
@@ -12,4 +13,5 @@ export {
   AnimalCard,
   SimilarityCard,
   MHeader,
+  Label,
 };

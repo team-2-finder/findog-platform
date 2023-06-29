@@ -28,7 +28,7 @@ const Research = () => {
   const isMobile = window.innerWidth <= 393;
   const arr = [
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -36,7 +36,7 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290706721.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -44,7 +44,7 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -52,7 +52,7 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806349.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -60,7 +60,7 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -68,7 +68,7 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -76,7 +76,7 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -84,7 +84,7 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290706463.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -92,23 +92,6 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
   ];
-
-  const [modalOpen, setModalOpen] = useState(false);
-
-  const openModal = () => {
-    setModalOpen(true);
-  };
-  const closeModal = () => {
-    setModalOpen(false);
-  };
-
-  const [testData, setTestData] = useState({});
-  const DataChoice = (info) => {
-    setTestData({
-      date: info.date,
-      kindCd: info.kindCd,
-    });
-  };
 
   return (
     <>
@@ -120,7 +103,7 @@ const Research = () => {
           {arr.map((res, i) => (
             <AnimalCard
               key={i}
-              date={res.data}
+              date={res.date}
               kindCd={res.kindCd}
               sexCd={res.sexCd}
               neuterYn={res.neuterYn}
