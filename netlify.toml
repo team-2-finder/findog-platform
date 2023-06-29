@@ -1,5 +1,5 @@
 [[redirects]]
   from = "/proxy/*"
-  to = "https://findogplatform.netlify.app//:splat"
+  to = "https://findog.buttercrab.net/:splat"
   status = 200
   force = true
