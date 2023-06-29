@@ -8,6 +8,7 @@ import goResearch from "./goResearch.svg";
 import goImg from "./goImg.svg";
 import mgoResearch from "./mgoResearch.svg";
 import mgoImg from "./mgoImg.svg";
+import closeBtn from "./closeBtn.svg";
 export {
   DogChar,
   DogInput,
@@ -19,4 +20,5 @@ export {
   goImg,
   mgoResearch,
   mgoImg,
+  closeBtn,
 };

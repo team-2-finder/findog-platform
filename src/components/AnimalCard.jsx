@@ -18,6 +18,9 @@ const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
     setTestData({
       date: info.date,
       kindCd: info.kindCd,
+      sexCd: info.sexCd,
+      neuterYn: info.neuterYn,
+      imgUrl: info.imgUrl,
     });
   };
   return (
@@ -28,11 +31,14 @@ const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
           DataChoice({
             date: date,
             kindCd: kindCd,
+            sexCd: sexCd,
+            neuterYn: neuterYn,
+            imgUrl: imgUrl,
           });
           openModal();
         }}
       >
-        <S.AnimalImg style={{ width: "192px", height: "223px" }} src={imgUrl} />
+        <S.AnimalImg src={imgUrl} />
         <S.TextContainer>
           <S.TextBox1>접수일</S.TextBox1>
           <S.TextBox2>{date}</S.TextBox2>
@@ -64,8 +70,8 @@ const S = {
   `,
   AnimalImg: styled.img`
     padding: 26px;
-    /* width: 192;
-    height: 223;*/
+    width: 192px;
+    height: 223px;
   `,
   AnimalDiv: styled.div`
     background-image: url("http://www.animal.go.kr/files/shelter/2023/05/202306290706525.jpg");
