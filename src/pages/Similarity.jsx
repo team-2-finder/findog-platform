@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Header, SimilarityCard } from "../components";
 import styled from "styled-components";
+import DetailModal from "../components/DetailModal";
 
 const Similarity = () => {
   // const [list, setList] = useState([]);
@@ -89,6 +90,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
   ];
+
   return (
     <>
       <Header />

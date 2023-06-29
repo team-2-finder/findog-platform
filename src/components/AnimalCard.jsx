@@ -1,10 +1,23 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { MainColor } from "./Colors";
+import DetailModal from "./DetailModal";
 
 const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
+  const [open, setOpen] = useState(false);
+
+  const openDetail = () => {
+    setOpen(true);
+  };
+  const closeDetail = () => {
+    setOpen(false);
+  };
+  // const [signup, setSignup] = useState(false);
+
   return (
     <>
-      <S.Container>
+      <DetailModal open={openDetail} close={closeDetail} date={date} />
+      <S.Container onClick={openDetail}>
         <S.AnimalImg style={{ width: "192px", height: "223px" }} src={imgUrl} />
         <S.TextContainer>
           <S.TextBox1>접수일</S.TextBox1>

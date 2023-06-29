@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Header, AnimalCard } from "../components";
 import styled from "styled-components";
+import DetailModal from "../components/DetailModal";
 
 const Research = () => {
   // const [list, setList] = useState([]);
@@ -89,6 +90,11 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
   ];
+  // const [open, setOpen] = useState(false);
+
+  // const openDetail = () => {
+  //   setOpen(true);
+  // };
   return (
     <>
       <Header />
@@ -97,6 +103,8 @@ const Research = () => {
         <S.HeaderBox>강아지 목록이에요.</S.HeaderBox>
         <S.AnimalContainer>
           {arr.map((res) => (
+            // <div onClick={openDetail}>
+            //   {open ? <DetailModal setModalOpen={setOpen} /> : null}
             <AnimalCard
               date={res.data}
               kindCd={res.kindCd}
@@ -104,6 +112,7 @@ const Research = () => {
               neuterYn={res.neuterYn}
               imgUrl={res.imgUrl}
             />
+            // </div>
           ))}
         </S.AnimalContainer>
       </S.Container>
