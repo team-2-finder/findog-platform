@@ -34,17 +34,20 @@ const Research = () => {
       } else {
         delete params.sex_cd;
       }
-      if (happenDtSelected !== "" || happenDtList[happenDtSelected] !== 0) {
+      if (happenDtSelected !== "" && happenDtSelected.days !== 0) {
         params.happen_dt = getPreviousDate(happenDtSelected);
       } else {
         delete params.happen_dt;
       }
-      console.log(params);
+
       const response = await axios.get("https://findog.buttercrab.net/api/", {
         params: params,
       });
       console.log(response.data);
-      await setList(response.data);
+      if ("happen_dt" in params) {
+        response.data.reverse();
+      }
+      setList(response.data);
     } catch (error) {
       console.error(error);
     }

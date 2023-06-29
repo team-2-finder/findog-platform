@@ -17,7 +17,16 @@ function DetailModal({ open, close, data }) {
                 <S.InImg src={data.imgUrl} alt="img" />
               </S.InModal>
               <div>
-                <Label text={"접수일"} data={data.date} />
+                <Label
+                  text={"접수일"}
+                  data={
+                    data.date.substr(0, 4) +
+                    "/" +
+                    data.date.substr(4, 2) +
+                    "/" +
+                    data.date.substr(6, 8)
+                  }
+                />
                 <Label text={"품종"} data={data.kindCd} />
                 <Label
                   text={"성별/중성화여부"}
