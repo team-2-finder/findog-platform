@@ -2,7 +2,17 @@ import styled from "styled-components";
 import { useState } from "react";
 import { MainColor, DetailModal } from "./";
 
-const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
+const AnimalCard = ({
+  date,
+  kindCd,
+  sexCd,
+  neuterYn,
+  imgUrl,
+  notice,
+  colorCd,
+  caretel,
+  weight,
+}) => {
   const [modalOpen, setModalOpen] = useState(false);
 
   const openModal = () => {
@@ -20,6 +30,10 @@ const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
       sexCd: info.sexCd,
       neuterYn: info.neuterYn,
       imgUrl: info.imgUrl,
+      notice: notice,
+      colorCd: colorCd,
+      caretel: caretel,
+      weight: weight,
     });
   };
   return (
@@ -32,6 +46,10 @@ const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
             sexCd: sexCd,
             neuterYn: neuterYn,
             imgUrl: imgUrl,
+            notice: notice,
+            colorCd: colorCd,
+            caretel: caretel,
+            weight: weight,
           });
           openModal();
         }}

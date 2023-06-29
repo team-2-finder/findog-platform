@@ -108,6 +108,7 @@ const S = {
   `,
   TextBox2: styled.div`
     display: block;
+    margin-top: 10px;
     font-weight: 600;
     font-size: 18px;
   `,
