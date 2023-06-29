@@ -8,6 +8,7 @@ import {
   MainColor,
   Loading,
   MHeader,
+  MBottomNavBar,
 } from "../components";
 
 const Main = () => {
@@ -37,7 +38,7 @@ const Main = () => {
   const handleLodingAndNavigate = () => {
     setLoading(true);
     setTimeout(() => {
-      navigate("/research");
+      navigate("/similarity");
     }, 5000);
   };
   return (
@@ -102,6 +103,7 @@ const Main = () => {
             </>
           )}
         </S.Container2>
+        {isMobile && <MBottomNavBar />}
       </S.Container>
     </>
   );
@@ -150,6 +152,8 @@ const S = {
     width: 50%;
     height: 90%;
     border-radius: 40px;
+    object-fit: contain;
+    background-color: white;
     resize: cover;
     align-self: center;
     justify-content: center;
@@ -191,7 +195,7 @@ const S = {
 
   MNextpageBtn: styled.div`
     background: ${() => MainColor};
-    border-radius: 20px;
+    border-radius: 8px;
     color: white;
     font-size: 24px;
     font-weight: 700;
@@ -204,7 +208,7 @@ const S = {
 
   MNextpageBtnNon: styled.div`
     background: ${() => DisableMain};
-    border-radius: 20px;
+    border-radius: 8px;
     color: white;
     font-size: 24px;
     font-weight: 700;

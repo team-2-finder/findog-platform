@@ -23,11 +23,6 @@ function DetailModal({ open, close, data }) {
                 <Label text={"나이"} data={data.neuterYn} />
               </div>
             </S.Row>
-
-            {/* <p>{data.date}</p>
-            <p>{data.kindCd}</p>
-            <p>{data.sexCd}</p>
-            <p>{data.neuterYn}</p> */}
           </S.Container>
         </S.Background>
       ) : null}
@@ -56,11 +51,18 @@ const S = {
     transform: translate(-50%, -5%);
     background-color: white;
     border-radius: 20px;
-    padding-inline: 30px;
+    padding-left: 16px;
     padding-block: 16px;
+    @media screen and (max-width: 393px) {
+      width: 80%;
+      padding: 0;
+    }
   `,
   InModal: styled.div`
     padding-right: 24px;
+    @media screen and (max-width: 393px) {
+      padding: 0;
+    }
   `,
 
   /* 모달창 내부 X버튼 */
@@ -73,10 +75,19 @@ const S = {
     width: 300px;
     height: 350px;
     object-fit: cover;
+    @media screen and (max-width: 393px) {
+      margin-top: 16px;
+      width: 280px;
+      height: 200px;
+    }
   `,
   Row: styled.div`
     display: flex;
     margin-top: 40px;
+    @media screen and (max-width: 393px) {
+      padding-inline: 16px;
+      flex-direction: column;
+    }
   `,
 };
 

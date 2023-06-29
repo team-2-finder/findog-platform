@@ -24,6 +24,7 @@ const S = {
   Container: styled.div`
     padding-inline: 24px;
     padding-block: 20%;
+    background-color: white;
   `,
   Titleimg: styled.img`
     margin-bottom: 60px;
