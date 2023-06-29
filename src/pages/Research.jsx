@@ -133,6 +133,7 @@ const Research = () => {
             ))}
           </S.Select>
           <S.FilterText>품종</S.FilterText>
+
           <S.Select
             onChange={handleSexCd}
             defaultValue={sexCdList[0]}
@@ -146,6 +147,7 @@ const Research = () => {
             ))}
           </S.Select>
           <S.FilterText>성별</S.FilterText>
+
           <S.Select
             onChange={handleKindCd}
             defaultValue={kindCdList[0]}
@@ -158,6 +160,7 @@ const Research = () => {
             ))}
           </S.Select>
           <S.FilterText>중성화여부</S.FilterText>
+
           <S.Select
             onChange={handleNeuterYn}
             defaultValue={neuterYnList[0]}
@@ -216,7 +219,20 @@ const Research = () => {
           </S.PagenationButton>
         </S.Pagenation>
       </S.Container>
-      {isMobile && <MBottomNavBar />}
+      <div>
+        <S.PagenationButton
+          onClick={goToPreviousPage}
+          disabled={currentPage === 1}
+        >
+          이전 페이지
+        </S.PagenationButton>
+        <span>
+          현재 페이지: {currentPage} / {totalPages}
+        </span>
+        <button onClick={goToNextPage} disabled={currentPage === totalPages}>
+          다음 페이지
+        </button>
+      </div>
     </>
   );
 };
