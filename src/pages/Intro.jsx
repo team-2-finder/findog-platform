@@ -23,8 +23,10 @@ const Intro = () => {
 
 const S = {
   Container: styled.div`
+    height: 100%;
     padding-inline: 120px;
-    padding-block: 5%;
+    padding-top: 5%;
+    background-color: white;
   `,
   Titleimg: styled.img`
     margin-bottom: 60px;
@@ -39,6 +41,7 @@ const S = {
   `,
   ImgArea: styled.div`
     width: 100%;
+    height: min-content;
   `,
   LogoImg: styled.img`
     margin-top: 16px;

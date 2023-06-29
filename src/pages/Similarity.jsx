@@ -27,7 +27,7 @@ const Similarity = () => {
   const isMobile = window.innerWidth <= 393;
   const arr = [
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -35,7 +35,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290706721.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -43,7 +43,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -51,7 +51,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806349.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -59,7 +59,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -67,7 +67,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -75,7 +75,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -83,7 +83,7 @@ const Similarity = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290706463.jpg",
     },
     {
-      data: "2023/06/23",
+      date: "2023/06/23",
       kindCd: "골든 리트리버",
       sexCd: "M",
       neuterYn: "Y",
@@ -95,14 +95,16 @@ const Similarity = () => {
   return (
     <>
       {isMobile ? <MHeader /> : <Header />}
-
       <S.Container>
-        <S.HeaderBox>사진과 유사한</S.HeaderBox>
-        <S.HeaderBox>강아지들을 찾아봤어요.</S.HeaderBox>
+        <S.HeaderBox>
+          사진과 유사한
+          <br />
+          강아지들을 찾아봤어요.
+        </S.HeaderBox>
         <S.AnimalContainer>
           {arr.map((res) => (
             <SimilarityCard
-              date={res.data}
+              date={res.date}
               kindCd={res.kindCd}
               sexCd={res.sexCd}
               neuterYn={res.neuterYn}
@@ -116,14 +118,19 @@ const Similarity = () => {
 };
 const S = {
   Container: styled.div`
-    padding-inline: 120px;
+    padding-inline: 80px;
     @media screen and (max-width: 393px) {
-      padding: 0;
+      padding-inline: 24px;
     }
   `,
   HeaderBox: styled.div`
     font-size: 48px;
+    margin-block: 24px;
     font-weight: bold;
+    @media screen and (max-width: 393px) {
+      margin-block: 16px;
+      font-size: 32px;
+    }
   `,
   AnimalContainer: styled.div`
     display: grid;

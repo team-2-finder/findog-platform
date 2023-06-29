@@ -8,10 +8,10 @@ const Header = () => {
   const location = useLocation();
   const [isFocus, setFocus] = useState("");
   useEffect(() => {
-    if (location.pathname === "/inputImage") {
-      setFocus("img");
-    } else {
+    if (location.pathname === "/research") {
       setFocus("research");
+    } else {
+      setFocus("img");
     }
   }, [isFocus]);
   const navigate = useNavigate();

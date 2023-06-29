@@ -7,6 +7,8 @@ import SimilarityCard from "./SimilarityCard";
 import DropDown from "./DropDown";
 
 import Label from "./Label";
+import DetailModal from "./DetailModal";
+import DetailModal2 from "./DetailModal2";
 export {
   Header,
   MainColor,
@@ -17,4 +19,6 @@ export {
   DropDown,
   MHeader,
   Label,
+  DetailModal,
+  DetailModal2,
 };

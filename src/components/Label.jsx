@@ -15,17 +15,20 @@ const S = {
   Row: styled.div`
     display: flex;
     margin-bottom: 20px;
+    align-items: center;
+    justify-content: left;
   `,
   Container: styled.div`
     color: ${() => MainColor};
-    border: 1px solid ${() => MainColor};
-    border-radius: 4px;
     text-align: center;
-    padding: 4px 8px;
+    font-weight: 500;
+    font-size: 14px;
   `,
   TextArea: styled.div`
     margin-left: 8px;
     text-align: center;
+    font-weight: 600;
+    font-size: 18px;
   `,
 };
 

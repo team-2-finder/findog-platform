@@ -220,14 +220,19 @@ const Research = () => {
 };
 const S = {
   Container: styled.div`
-    padding-inline: 120px;
+    padding-inline: 80px;
     @media screen and (max-width: 393px) {
-      padding: 0;
+      padding-inline: 24px;
     }
   `,
   HeaderBox: styled.div`
     font-size: 48px;
+    margin-block: 24px;
     font-weight: bold;
+    @media screen and (max-width: 393px) {
+      margin-block: 16px;
+      font-size: 32px;
+    }
   `,
   AnimalContainer: styled.div`
     display: grid;
