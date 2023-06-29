@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header, AnimalCard, DropDown } from "../components";
+import { Header, AnimalCard, MHeader, DropDown } from "../components";
+
 import styled from "styled-components";
+import DetailModal from "../components/DetailModal";
 
 const Research = () => {
   const [list, setList] = useState([]);
@@ -81,10 +83,11 @@ const Research = () => {
   const handleNeuterYn = (e) => {
     setNeuterYnSelected(e.target.value);
   };
+  const isMobile = window.innerWidth <= 393;
 
   return (
     <>
-      <Header />
+      {isMobile ? <MHeader /> : <Header />}
       <S.Container>
         <S.HeaderBox>지금까지 등록된</S.HeaderBox>
         <S.HeaderBox>강아지 목록이에요.</S.HeaderBox>

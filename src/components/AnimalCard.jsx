@@ -1,11 +1,44 @@
 import styled from "styled-components";
+import { useState } from "react";
 import { MainColor } from "./Colors";
+import DetailModal from "./DetailModal";
 
 const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const [testData, setTestData] = useState({});
+  const DataChoice = (info) => {
+    setTestData({
+      date: info.date,
+      kindCd: info.kindCd,
+      sexCd: info.sexCd,
+      neuterYn: info.neuterYn,
+      imgUrl: info.imgUrl,
+    });
+  };
   return (
     <>
-      <S.Container>
-        <S.AnimalImg style={{ width: "192px", height: "223px" }} src={imgUrl} />
+      <S.Container
+        onClick={() => {
+          console.log(date, kindCd);
+          DataChoice({
+            date: date,
+            kindCd: kindCd,
+            sexCd: sexCd,
+            neuterYn: neuterYn,
+            imgUrl: imgUrl,
+          });
+          openModal();
+        }}
+      >
+        <S.AnimalImg src={imgUrl} />
         <S.TextContainer>
           <S.TextBox1>접수일</S.TextBox1>
           <S.TextBox2>{date}</S.TextBox2>
@@ -19,6 +52,7 @@ const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
           </S.TextBox2>
         </S.TextContainer>
       </S.Container>
+      <DetailModal open={modalOpen} close={closeModal} data={testData} />
     </>
   );
 };
@@ -32,11 +66,12 @@ const S = {
 
     grid-template-columns: 1fr 1fr;
     background-color: white;
+    cursor: pointer;
   `,
   AnimalImg: styled.img`
     padding: 26px;
-    /* width: 192;
-    height: 223;*/
+    width: 192px;
+    height: 223px;
   `,
   AnimalDiv: styled.div`
     background-image: url("http://www.animal.go.kr/files/shelter/2023/05/202306290706525.jpg");

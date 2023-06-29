@@ -1,9 +1,12 @@
 import Header from "./Header";
+import MHeader from "./MHeader";
 import Loading from "./Loading";
 import { MainColor, DisableMain } from "./Colors";
 import AnimalCard from "./AnimalCard";
 import SimilarityCard from "./SimilarityCard";
 import DropDown from "./DropDown";
+
+import Label from "./Label";
 export {
   Header,
   MainColor,
@@ -12,4 +15,6 @@ export {
   AnimalCard,
   SimilarityCard,
   DropDown,
+  MHeader,
+  Label,
 };
