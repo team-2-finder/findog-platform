@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header, AnimalCard } from "../components";
+import { Header, SimilarityCard } from "../components";
 import styled from "styled-components";
 
-const Research = () => {
+const Similarity = () => {
   // const [list, setList] = useState([]);
   // async function getData() {
   //   try {
@@ -93,11 +93,11 @@ const Research = () => {
     <>
       <Header />
       <S.Container>
-        <S.HeaderBox>지금까지 등록된</S.HeaderBox>
-        <S.HeaderBox>강아지 목록이에요.</S.HeaderBox>
+        <S.HeaderBox>사진과 유사한</S.HeaderBox>
+        <S.HeaderBox>강아지들을 찾아봤어요.</S.HeaderBox>
         <S.AnimalContainer>
           {arr.map((res) => (
-            <AnimalCard
+            <SimilarityCard
               date={res.data}
               kindCd={res.kindCd}
               sexCd={res.sexCd}
@@ -127,4 +127,4 @@ const S = {
   `,
 };
 
-export default Research;
+export default Similarity;
