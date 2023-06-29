@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Header, AnimalCard, MHeader } from "../components";
 import styled from "styled-components";
+import DetailModal from "../components/DetailModal";
 
 const Research = () => {
   // const [list, setList] = useState([]);
@@ -91,6 +92,24 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
   ];
+
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const [testData, setTestData] = useState({});
+  const DataChoice = (info) => {
+    setTestData({
+      date: info.date,
+      kindCd: info.kindCd,
+    });
+  };
+
   return (
     <>
       {isMobile ? <MHeader /> : <Header />}
@@ -98,8 +117,9 @@ const Research = () => {
         <S.HeaderBox>지금까지 등록된</S.HeaderBox>
         <S.HeaderBox>강아지 목록이에요.</S.HeaderBox>
         <S.AnimalContainer>
-          {arr.map((res) => (
+          {arr.map((res, i) => (
             <AnimalCard
+              key={i}
               date={res.data}
               kindCd={res.kindCd}
               sexCd={res.sexCd}
