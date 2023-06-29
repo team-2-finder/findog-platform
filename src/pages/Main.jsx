@@ -34,9 +34,9 @@ const Main = () => {
   const isMobile = window.innerWidth <= 393;
   const [isLoading, setLoading] = useState();
 
-  // useEffect(() => {
-  //   console.log("test", selectedImage);
-  // }, [selectedImage]);
+  useEffect(() => {
+    console.log("test", selectedImage);
+  }, [selectedImage]);
 
   //임시 타이머
   // const navigate = useNavigate();
