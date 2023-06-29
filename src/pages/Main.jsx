@@ -37,7 +37,7 @@ const Main = () => {
   const handleLodingAndNavigate = () => {
     setLoading(true);
     setTimeout(() => {
-      navigate("/research");
+      navigate("/similarity");
     }, 5000);
   };
   return (

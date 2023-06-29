@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { MainColor } from "./Colors";
-import DetailModal from "./DetailModal";
+import { MainColor, DetailModal } from "./";
 
 const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -27,7 +26,6 @@ const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
     <>
       <S.Container
         onClick={() => {
-          console.log(date, kindCd);
           DataChoice({
             date: date,
             kindCd: kindCd,
@@ -62,38 +60,48 @@ const S = {
     margin: 10px;
     width: 408px;
     height: 279px;
-    display: grid;
-
-    grid-template-columns: 1fr 1fr;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
     background-color: white;
     cursor: pointer;
+    @media screen and (max-width: 393px) {
+      margin: 0;
+      margin-bottom: 8px;
+      padding: 8px;
+      width: auto;
+      height: auto;
+    }
   `,
   AnimalImg: styled.img`
     padding: 26px;
-    width: 192px;
-    height: 223px;
+    width: 190px;
+    height: 200px;
+    border-radius: 20px;
+    @media screen and (max-width: 393px) {
+      padding: 8px 16px 8px 8px;
+      width: 150px;
+    }
   `,
-  AnimalDiv: styled.div`
-    background-image: url("http://www.animal.go.kr/files/shelter/2023/05/202306290706525.jpg");
-    background-size: cover;
-    border-radius: 4px;
-  `,
+
   TextContainer: styled.div`
     padding: 26px 0 26px 0;
     margin-top: 5px;
+    @media screen and (max-width: 393px) {
+      padding: 0;
+      width: 150px;
+    }
   `,
   TextBox1: styled.div`
-    background-color: ${MainColor};
     display: inline;
     border-radius: 4px;
-    padding: 5px 15px 5px 15px;
-    color: white;
+    color: ${() => MainColor};
+    font-weight: 500;
     font-size: 14px;
   `,
   TextBox2: styled.div`
     display: block;
-    margin-top: 10px;
-    /* padding: 5px 15px 5px 15px; */
+    font-weight: 600;
     font-size: 18px;
   `,
 };
