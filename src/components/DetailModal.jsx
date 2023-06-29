@@ -1,15 +1,16 @@
 import styled from "styled-components";
 
-function DetailModal({ open, close, date }) {
+function DetailModal({ open, close, data }) {
   return (
     <>
-      {open &
-      (
+      {open ? (
         <S.Container>
           <S.CloseButton onClick={close}>X</S.CloseButton>
-          <p>date</p>
+          <p>asdfasdf</p>
+          <p>{data.date}</p>
+          <p>{data.kindCd}</p>
         </S.Container>
-      )}
+      ) : null}
     </>
   );
 }

@@ -4,20 +4,34 @@ import { MainColor } from "./Colors";
 import DetailModal from "./DetailModal";
 
 const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
-  const [open, setOpen] = useState(false);
+  const [modalOpen, setModalOpen] = useState(false);
 
-  const openDetail = () => {
-    setOpen(true);
+  const openModal = () => {
+    setModalOpen(true);
   };
-  const closeDetail = () => {
-    setOpen(false);
+  const closeModal = () => {
+    setModalOpen(false);
   };
-  // const [signup, setSignup] = useState(false);
 
+  const [testData, setTestData] = useState({});
+  const DataChoice = (info) => {
+    setTestData({
+      date: info.date,
+      kindCd: info.kindCd,
+    });
+  };
   return (
     <>
-      <DetailModal open={openDetail} close={closeDetail} date={date} />
-      <S.Container onClick={openDetail}>
+      <S.Container
+        onClick={() => {
+          console.log(date, kindCd);
+          DataChoice({
+            date: date,
+            kindCd: kindCd,
+          });
+          openModal();
+        }}
+      >
         <S.AnimalImg style={{ width: "192px", height: "223px" }} src={imgUrl} />
         <S.TextContainer>
           <S.TextBox1>접수일</S.TextBox1>
@@ -32,6 +46,7 @@ const AnimalCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
           </S.TextBox2>
         </S.TextContainer>
       </S.Container>
+      <DetailModal open={modalOpen} close={closeModal} data={testData} />
     </>
   );
 };
@@ -45,6 +60,7 @@ const S = {
 
     grid-template-columns: 1fr 1fr;
     background-color: white;
+    cursor: pointer;
   `,
   AnimalImg: styled.img`
     padding: 26px;

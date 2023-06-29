@@ -90,11 +90,24 @@ const Research = () => {
         "http://www.animal.go.kr/files/shelter/2023/05/202306290806405.jpg",
     },
   ];
-  // const [open, setOpen] = useState(false);
 
-  // const openDetail = () => {
-  //   setOpen(true);
-  // };
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const openModal = () => {
+    setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
+  };
+
+  const [testData, setTestData] = useState({});
+  const DataChoice = (info) => {
+    setTestData({
+      date: info.date,
+      kindCd: info.kindCd,
+    });
+  };
+
   return (
     <>
       <Header />
@@ -102,17 +115,15 @@ const Research = () => {
         <S.HeaderBox>지금까지 등록된</S.HeaderBox>
         <S.HeaderBox>강아지 목록이에요.</S.HeaderBox>
         <S.AnimalContainer>
-          {arr.map((res) => (
-            // <div onClick={openDetail}>
-            //   {open ? <DetailModal setModalOpen={setOpen} /> : null}
+          {arr.map((res, i) => (
             <AnimalCard
+              key={i}
               date={res.data}
               kindCd={res.kindCd}
               sexCd={res.sexCd}
               neuterYn={res.neuterYn}
               imgUrl={res.imgUrl}
             />
-            // </div>
           ))}
         </S.AnimalContainer>
       </S.Container>
