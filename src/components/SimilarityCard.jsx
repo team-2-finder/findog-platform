@@ -62,7 +62,7 @@ const S = {
   TextBox2: styled.div`
     display: block;
     margin-top: 10px;
-    /* padding: 5px 15px 5px 15px; */
+
     font-size: 18px;
   `,
   SimilarityBox: styled.div`

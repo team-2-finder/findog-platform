@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Routes } from "react-router-dom";
-import { Main, Research, Intro, MIntro,Similarity } from "./pages";
+import { Main, Research, Intro, MIntro, Similarity } from "./pages";
 
 const isMobile = window.innerWidth <= 393;
 

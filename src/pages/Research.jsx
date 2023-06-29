@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header, AnimalCard, MHeader, DropDown } from "../components";
+import {
+  Header,
+  AnimalCard,
+  MHeader,
+  DropDown,
+  MainColor,
+} from "../components";
 
 import styled from "styled-components";
 import DetailModal from "../components/DetailModal";
@@ -10,12 +16,12 @@ const Research = () => {
   async function getData() {
     try {
       const response = await axios.get("https://findog.buttercrab.net/api/", {
-        // params:{
-        //  happen_dt: string,
-        //  kind_cd: string,
-        //  sex_cd: string,
-        //  neuter_yn: string,
-        // }
+        params: {
+          // happen_dt: happenDtSelected,
+          // kind_cd: kindSelected,
+          // sex_cd: sexSelected,
+          // neuter_yn: neuterYnSelected,
+        },
       });
       console.log(response.data);
       await setList(response.data);
@@ -70,12 +76,16 @@ const Research = () => {
   };
 
   //성별
-  const sexCdList = ["전체", "남성", "여성"];
+  const sexCdList = ["전체", "수컷", "암컷"];
   const [sexSelected, setSexSelected] = useState("");
 
   const handleSexCd = (e) => {
-    setSexSelected(e.target.value);
-    console.log(sexSelected);
+    const selectedValue = e.target.value;
+    setSexSelected(
+      selectedValue === "전체" ? "" : selectedValue === "수컷" ? "M" : "F"
+    );
+
+    // console.log(sexSelected);
   };
 
   //품종
@@ -83,15 +93,17 @@ const Research = () => {
   const [kindSelected, setKindSelected] = useState("");
 
   const handleKindCd = (e) => {
-    setKindSelected(e.target.value);
+    const selectedValue = e.target.value;
+    setKindSelected(selectedValue === "전체" ? "" : selectedValue);
   };
 
   //중성화여부
-  const neuterYnList = ["전체", "말티즈", "믹스견", "골든 리트리버", "진돗개"];
+  const neuterYnList = ["전체", "Y", "N"];
   const [neuterYnSelected, setNeuterYnSelected] = useState("");
 
   const handleNeuterYn = (e) => {
-    setNeuterYnSelected(e.target.value);
+    const selectedValue = e.target.value;
+    setNeuterYnSelected(selectedValue === "전체" ? "" : selectedValue);
   };
   const isMobile = window.innerWidth <= 393;
 
@@ -104,6 +116,7 @@ const Research = () => {
         <S.HeaderBox style={{ display: "inline" }}>
           강아지 목록이에요.
         </S.HeaderBox>
+        <S.FilterButton onClick={getData}>필터 검색 결과 보기</S.FilterButton>
         <S.Filter>
           <S.FilterText>접수일</S.FilterText>
           <S.Select
@@ -160,13 +173,19 @@ const Research = () => {
         <S.AnimalContainer>
           {list !== []
             ? getCurrentPageItems().map((res) => (
-                <AnimalCard
-                  date={res.happenDt}
-                  kindCd={res.kindCd}
-                  sexCd={res.sexCd}
-                  neuterYn={res.neuterYn}
-                  imgUrl={res.filename}
-                />
+                <>
+                  <AnimalCard
+                    date={res.happenDt}
+                    kindCd={res.kindCd}
+                    sexCd={res.sexCd}
+                    neuterYn={res.neuterYn}
+                    imgUrl={res.filename}
+                    notice={res.noticeComment}
+                    colorCd={res.colorCd}
+                    caretel={res.caretel}
+                    weight={res.weight}
+                  />
+                </>
               ))
             : "로딩중"}
         </S.AnimalContainer>
@@ -225,6 +244,20 @@ const S = {
     padding: 10px;
     font-size: 20px;
   `,
+  FilterButton: styled.div`
+    display: inline;
+    float: right;
+    padding: 15px;
+    color: white;
+    background-color: ${MainColor};
+    font-size: 18px;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:active {
+      background-color: rgba(255, 185, 65, 0.8);
+    }
+  `,
   Filter: styled.div`
     display: inline-block;
     float: right;
@@ -243,7 +276,6 @@ const S = {
   `,
   PagenationButton: styled.div`
     display: inline;
-
     width: 80px;
     height: 60px;
   `,
