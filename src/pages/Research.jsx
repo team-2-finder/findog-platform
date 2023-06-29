@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header, AnimalCard, MHeader } from "../components";
+import { Header, AnimalCard, MHeader, MBottomNavBar } from "../components";
 import styled from "styled-components";
 import DetailModal from "../components/DetailModal";
 
@@ -114,6 +114,7 @@ const Research = () => {
           ))}
         </S.AnimalContainer>
       </S.Container>
+      {isMobile && <MBottomNavBar />}
     </>
   );
 };

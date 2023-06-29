@@ -8,6 +8,7 @@ import {
   MainColor,
   Loading,
   MHeader,
+  MBottomNavBar,
 } from "../components";
 
 const Main = () => {
@@ -102,6 +103,7 @@ const Main = () => {
             </>
           )}
         </S.Container2>
+        {isMobile && <MBottomNavBar />}
       </S.Container>
     </>
   );
