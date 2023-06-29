@@ -11,10 +11,10 @@ const Research = () => {
     try {
       const response = await axios.get("https://findog.buttercrab.net/api/", {
         // params:{
-        //  happenDt: 접수일
-        //  kindCd: //품종
-        //  sexCd: 성별
-        //  neuterYn : 중성화 여부
+        //  happen_dt: string,
+        //  kind_cd: string,
+        //  sex_cd: string,
+        //  neuter_yn: string,
         // }
       });
       console.log(response.data);
@@ -45,6 +45,9 @@ const Research = () => {
 
   // 이전 페이지로 이동하는 함수
   const goToPreviousPage = () => {
+    if (currentPage === 1) {
+      return;
+    }
     setCurrentPage((prevPage) => prevPage - 1);
   };
 
@@ -58,6 +61,13 @@ const Research = () => {
     setCurrentPage((prevPage) => prevPage + 1);
   };
   //접수일
+  const happenDtList = ["전체", "1주일", "1개월", "3개월", "1년"];
+  const [happenDtSelected, setHappenDtSelected] = useState("");
+
+  const handlehappenDt = (e) => {
+    setHappenDtSelected(e.target.value);
+    console.log(sexSelected);
+  };
 
   //성별
   const sexCdList = ["전체", "남성", "여성"];
@@ -90,8 +100,25 @@ const Research = () => {
       {isMobile ? <MHeader /> : <Header />}
       <S.Container>
         <S.HeaderBox>지금까지 등록된</S.HeaderBox>
-        <S.HeaderBox>강아지 목록이에요.</S.HeaderBox>
-        <div>
+
+        <S.HeaderBox style={{ display: "inline" }}>
+          강아지 목록이에요.
+        </S.HeaderBox>
+        <S.Filter>
+          <S.FilterText>접수일</S.FilterText>
+          <S.Select
+            onChange={handlehappenDt}
+            defaultValue={happenDtList[0]}
+            value={happenDtSelected}
+            // style={{ width: "400px" }}
+          >
+            {happenDtList.map((item) => (
+              <option value={item} key={item}>
+                {item}
+              </option>
+            ))}
+          </S.Select>
+          <S.FilterText>품종</S.FilterText>
           <S.Select
             onChange={handleSexCd}
             defaultValue={sexCdList[0]}
@@ -104,30 +131,32 @@ const Research = () => {
               </option>
             ))}
           </S.Select>
+          <S.FilterText>성별</S.FilterText>
           <S.Select
             onChange={handleKindCd}
             defaultValue={kindCdList[0]}
             value={kindSelected}
           >
-            {sexCdList.map((item) => (
+            {kindCdList.map((item) => (
               <option value={item} key={item}>
                 {item}
               </option>
             ))}
           </S.Select>
+          <S.FilterText>중성화여부</S.FilterText>
           <S.Select
             onChange={handleNeuterYn}
             defaultValue={neuterYnList[0]}
             value={neuterYnSelected}
           >
-            {sexCdList.map((item) => (
+            {neuterYnList.map((item) => (
               <option value={item} key={item}>
                 {item}
               </option>
             ))}
           </S.Select>
-          <hr />
-        </div>
+        </S.Filter>
+
         <S.AnimalContainer>
           {list !== []
             ? getCurrentPageItems().map((res) => (
@@ -141,21 +170,32 @@ const Research = () => {
               ))
             : "로딩중"}
         </S.AnimalContainer>
+        <S.Pagenation>
+          <S.PagenationButton
+            onClick={goToPreviousPage}
+            disabled={currentPage === 1}
+          >
+            <img
+              src="img/arrow-left.png"
+              alt="left"
+              style={{ width: "40px" }}
+            />
+          </S.PagenationButton>
+          <span style={{ fontSize: "20px" }}>
+            {currentPage} / {totalPages}
+          </span>
+          <S.PagenationButton
+            onClick={goToNextPage}
+            disabled={currentPage === totalPages}
+          >
+            <img
+              src="img/arrow-right.png"
+              alt="right"
+              style={{ width: "40px" }}
+            />
+          </S.PagenationButton>
+        </S.Pagenation>
       </S.Container>
-      <div>
-        <S.PagenationButton
-          onClick={goToPreviousPage}
-          disabled={currentPage === 1}
-        >
-          이전 페이지
-        </S.PagenationButton>
-        <span>
-          현재 페이지: {currentPage} / {totalPages}
-        </span>
-        <button onClick={goToNextPage} disabled={currentPage === totalPages}>
-          다음 페이지
-        </button>
-      </div>
     </>
   );
 };
@@ -177,16 +217,33 @@ const S = {
       grid-template-columns: 1fr;
     }
   `,
+  Select: styled.select`
+    border-radius: 8px;
+    display: inline;
+    width: 100px;
+
+    padding: 10px;
+    font-size: 20px;
+  `,
+  Filter: styled.div`
+    display: inline-block;
+    float: right;
+  `,
+  FilterText: styled.div`
+    display: inline;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 20px;
+    margin-right: 10px;
+  `,
+
   Pagenation: styled.div`
     display: block;
+    text-align: center;
   `,
-  Select: styled.select`
-    width: 150px;
-    font-size: 20px;
+  PagenationButton: styled.div`
+    display: inline;
 
-    /* background-color: yellow; */
-  `,
-  PagenationButton: styled.button`
     width: 80px;
     height: 60px;
   `,
