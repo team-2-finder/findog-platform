@@ -102,8 +102,9 @@ const Similarity = () => {
           강아지들을 찾아봤어요.
         </S.HeaderBox>
         <S.AnimalContainer>
-          {arr.map((res) => (
+          {arr.map((res, i) => (
             <SimilarityCard
+              key={i}
               date={res.date}
               kindCd={res.kindCd}
               sexCd={res.sexCd}
