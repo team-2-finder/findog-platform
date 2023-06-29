@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Logo } from "../images";
 import styled from "styled-components";
 import { MainColor, DisableMain } from "../components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 const Header = () => {
+  const location = useLocation();
+  const [isFocus, setFocus] = useState("");
+  useEffect(() => {
+    if (location.pathname === "/inputImage") {
+      setFocus("img");
+    } else {
+      setFocus("research");
+    }
+  }, [isFocus]);
   const navigate = useNavigate();
   const handleNavImg = () => {
     navigate("/inputImage");
@@ -25,22 +34,45 @@ const Header = () => {
         </div>
       </S.logoBox>
       <S.NavBox>
-        <div
-          style={{ marginRight: "56px", cursor: "pointer" }}
-          onClick={() => {
-            handleNavImg();
-          }}
-        >
-          <S.LinkText1>이미지로 찾기</S.LinkText1>
-        </div>
-        <div
-          style={{ marginRight: "120px", cursor: "pointer" }}
-          onClick={() => {
-            handleNavResearch();
-          }}
-        >
-          <S.LinkText2>필터로 찾기</S.LinkText2>
-        </div>
+        {isFocus === "img" ? (
+          <>
+            <div
+              style={{ marginRight: "56px", cursor: "pointer" }}
+              onClick={() => {
+                handleNavImg();
+              }}
+            >
+              <S.LinkText1>이미지로 찾기</S.LinkText1>
+            </div>
+            <div
+              style={{ marginRight: "120px", cursor: "pointer" }}
+              onClick={() => {
+                handleNavResearch();
+              }}
+            >
+              <S.LinkText2>필터로 찾기</S.LinkText2>
+            </div>
+          </>
+        ) : (
+          <>
+            <div
+              style={{ marginRight: "56px", cursor: "pointer" }}
+              onClick={() => {
+                handleNavImg();
+              }}
+            >
+              <S.LinkText2>이미지로 찾기</S.LinkText2>
+            </div>
+            <div
+              style={{ marginRight: "120px", cursor: "pointer" }}
+              onClick={() => {
+                handleNavResearch();
+              }}
+            >
+              <S.LinkText1>필터로 찾기</S.LinkText1>
+            </div>
+          </>
+        )}
       </S.NavBox>
     </S.container>
   );
