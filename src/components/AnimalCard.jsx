@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { MainColor, DetailModal } from "./";
+import { MainColor, DetailModal2 } from "./";
 import { defaultImg } from "../images";
 
 const AnimalCard = ({
@@ -13,6 +13,7 @@ const AnimalCard = ({
   colorCd,
   caretel,
   weight,
+  careNm,
 }) => {
   const [modalOpen, setModalOpen] = useState(false);
 
@@ -35,6 +36,7 @@ const AnimalCard = ({
       colorCd: colorCd,
       caretel: caretel,
       weight: weight,
+      careNm: careNm,
     });
   };
   return (
@@ -51,6 +53,7 @@ const AnimalCard = ({
             colorCd: colorCd,
             caretel: caretel,
             weight: weight,
+            careNm: careNm,
           });
           openModal();
         }}
@@ -74,7 +77,7 @@ const AnimalCard = ({
           </S.TextBox2>
         </S.TextContainer>
       </S.Container>
-      <DetailModal open={modalOpen} close={closeModal} data={testData} />
+      <DetailModal2 open={modalOpen} close={closeModal} data={testData} />
     </>
   );
 };

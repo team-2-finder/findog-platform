@@ -8,29 +8,6 @@ function DetailModal({ open, close, data }) {
     <>
       {open ? (
         <S.Background>
-          {/* <S.Container>
-            <div>
-              <S.CloseButton src={closeBtn} onClick={close} />
-            </div>
-            <S.Row>
-              <S.InModal>
-                <S.InImg src={data.imgUrl} alt="img" />
-              </S.InModal>
-
-              <div>
-                <S.HeadText>{data.kindCd}</S.HeadText>
-                <Label text={"접수일"} data={data.date} />
-                <Label
-                  text={"성별/중성화여부"}
-                  data={data.sexCd + " / " + data.neuterYn}
-                />
-                <Label text={"무게"} data={data.weight} />
-                <Label text={"색"} data={data.colorCd} />
-                <Label text={"특이사항"} data={data.notice} />
-              </div>
-            </S.Row>
-            <S.Inquiry>입양 문의 하기</S.Inquiry>
-          </S.Container> */}
           <S.Container>
             <div>
               <S.CloseButton src={closeBtn} onClick={close} />
@@ -40,7 +17,16 @@ function DetailModal({ open, close, data }) {
                 <S.InImg src={data.imgUrl} alt="img" />
               </S.InModal>
               <div>
-                <Label text={"접수일"} data={data.date} />
+                <Label
+                  text={"접수일"}
+                  data={
+                    data.date.substr(0, 4) +
+                    "/" +
+                    data.date.substr(4, 2) +
+                    "/" +
+                    data.date.substr(6, 8)
+                  }
+                />
                 <Label text={"품종"} data={data.kindCd} />
                 <Label
                   text={"성별/중성화여부"}
@@ -51,7 +37,6 @@ function DetailModal({ open, close, data }) {
               </div>
             </S.Row>
           </S.Container>
-          {/* <S.Inquiry>입양 문의 하기</S.Inquiry> */}
         </S.Background>
       ) : null}
     </>
