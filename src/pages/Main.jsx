@@ -1,7 +1,7 @@
 import React, { useState, useRef } from "react";
 import styled from "styled-components";
+import { useNavigate } from "react-router-dom";
 import { DogInput, MobileDogInput } from "../images";
-// import { Link } from "react-router-dom";
 import { Header, DisableMain, MainColor, Loading } from "../components";
 
 const Main = () => {
@@ -24,13 +24,14 @@ const Main = () => {
     }
   };
   const isMobile = window.innerWidth <= 393;
-  const [isLoading, setLoading] = useState(false);
+  const [isLoading, setLoading] = useState();
 
   //임시 타이머
+  const navigate = useNavigate();
   const handleLodingAndNavigate = () => {
     setLoading(true);
     setTimeout(() => {
-      window.location.href = "/research";
+      navigate("/research");
     }, 5000);
   };
   return (
@@ -179,8 +180,8 @@ const S = {
     margin-bottom: 20px;
     -webkit-tap-highlight-color: transparent;
   `,
-  ///
-  ///
+  //
+
   MNextpageBtn: styled.div`
     background: ${() => MainColor};
     border-radius: 20px;
