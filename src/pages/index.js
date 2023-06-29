@@ -1,2 +1,7 @@
 import Main from "./Main";
-export {Main}
+import Research from "./Research";
+
+import Intro from "./Intro";
+import MIntro from "./MIntro";
+import Similarity from "./Similarity";
+export { Main, Research, Intro, MIntro,Similarity };
