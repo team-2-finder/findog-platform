@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header, SimilarityCard, MHeader } from "../components";
+import { Header, SimilarityCard, MHeader, MBottomNavBar } from "../components";
 import styled from "styled-components";
 import DetailModal from "../components/DetailModal";
 
@@ -113,6 +113,7 @@ const Similarity = () => {
           ))}
         </S.AnimalContainer>
       </S.Container>
+      {isMobile && <MBottomNavBar />}
     </>
   );
 };

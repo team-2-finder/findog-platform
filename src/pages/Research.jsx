@@ -6,6 +6,7 @@ import {
   MHeader,
   DropDown,
   MainColor,
+  MBottomNavBar,
 } from "../components";
 
 import styled from "styled-components";
@@ -215,6 +216,7 @@ const Research = () => {
           </S.PagenationButton>
         </S.Pagenation>
       </S.Container>
+      {isMobile && <MBottomNavBar />}
     </>
   );
 };
