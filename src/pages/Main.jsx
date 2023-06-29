@@ -150,6 +150,8 @@ const S = {
     width: 50%;
     height: 90%;
     border-radius: 40px;
+    object-fit: contain;
+    background-color: white;
     resize: cover;
     align-self: center;
     justify-content: center;
