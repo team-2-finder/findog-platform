@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { useState } from "react";
 import { MainColor, DetailModal } from "./";
+import { defaultImg } from "../images";
 
 const AnimalCard = ({
   date,
@@ -54,7 +55,12 @@ const AnimalCard = ({
           openModal();
         }}
       >
-        <S.AnimalImg src={imgUrl} />
+        <S.AnimalImg
+          src={imgUrl}
+          onError={(e) => {
+            e.target.src = defaultImg;
+          }}
+        />
         <S.TextContainer>
           <S.TextBox1>접수일</S.TextBox1>
           <S.TextBox2>{date}</S.TextBox2>

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-
 import {
   Header,
   AnimalCard,
@@ -142,7 +141,6 @@ const Research = () => {
     <>
       {isMobile ? <MHeader /> : <Header />}
       <S.Container>
-
         <S.HeaderBox>지금까지 등록된</S.HeaderBox>
         <S.HeaderBox style={{ display: "inline" }}>
           강아지 목록이에요.
@@ -207,7 +205,6 @@ const Research = () => {
         </S.Filter>
         <div style={{ height: "50px" }}></div>
 
-
         <S.AnimalContainer>
           {list.length > 0
             ? getCurrentPageItems().map((res) => (
@@ -226,6 +223,7 @@ const Research = () => {
               ))
             : "로딩중"}
         </S.AnimalContainer>
+
         <S.Pagenation>
           <S.PagenationButton
             onClick={goToPreviousPage}
@@ -237,9 +235,9 @@ const Research = () => {
               style={{ width: "40px" }}
             />
           </S.PagenationButton>
-          <span style={{ fontSize: "20px" }}>
+          <div style={{ fontSize: "20px" }}>
             {currentPage} / {totalPages}
-          </span>
+          </div>
           <S.PagenationButton
             onClick={goToNextPage}
             disabled={currentPage === totalPages}
@@ -320,13 +318,17 @@ const S = {
     margin-right: 10px;
   `,
   Pagenation: styled.div`
-    display: block;
-    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   `,
   PagenationButton: styled.div`
-    display: inline;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     width: 80px;
     height: 60px;
+    cursor: pointer;
   `,
 };
 
