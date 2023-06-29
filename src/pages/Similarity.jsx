@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header, SimilarityCard } from "../components";
+import { Header, SimilarityCard, MHeader } from "../components";
 import styled from "styled-components";
 
 const Similarity = () => {
@@ -23,6 +23,7 @@ const Similarity = () => {
   // useEffect(() => {
   //   // getData();
   // }, []);
+  const isMobile = window.innerWidth <= 393;
   const arr = [
     {
       data: "2023/06/23",
@@ -91,7 +92,8 @@ const Similarity = () => {
   ];
   return (
     <>
-      <Header />
+      {isMobile ? <MHeader /> : <Header />}
+
       <S.Container>
         <S.HeaderBox>사진과 유사한</S.HeaderBox>
         <S.HeaderBox>강아지들을 찾아봤어요.</S.HeaderBox>

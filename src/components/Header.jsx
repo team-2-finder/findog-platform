@@ -1,9 +1,17 @@
 import React from "react";
 import { Logo } from "../images";
 import styled from "styled-components";
-// import { Link } from "react-router-dom";
+import { MainColor, DisableMain } from "../components";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+  const handleNavImg = () => {
+    navigate("/inputImage");
+  };
+  const handleNavResearch = () => {
+    navigate("/research");
+  };
   return (
     <S.container>
       <S.logoBox>
@@ -16,6 +24,24 @@ const Header = () => {
           <img src={Logo} alt="logo" />
         </div>
       </S.logoBox>
+      <S.NavBox>
+        <div
+          style={{ marginRight: "56px", cursor: "pointer" }}
+          onClick={() => {
+            handleNavImg();
+          }}
+        >
+          <S.LinkText1>이미지로 찾기</S.LinkText1>
+        </div>
+        <div
+          style={{ marginRight: "120px", cursor: "pointer" }}
+          onClick={() => {
+            handleNavResearch();
+          }}
+        >
+          <S.LinkText2>필터로 찾기</S.LinkText2>
+        </div>
+      </S.NavBox>
     </S.container>
   );
 };
@@ -25,17 +51,32 @@ const S = {
     display: flex;
     position: sticky;
     top: 0;
-    /* padding-inline: 32px; */
     padding-block: 13px;
     flex: 1;
     align-items: center;
     z-index: 3;
     background-color: #fff;
-    /* background-color: pink; */
+    justify-content: space-between;
   `,
 
   logoBox: styled.div`
     justify-content: left;
+  `,
+  NavBox: styled.div`
+    display: flex;
+    flex-direction: row;
+  `,
+
+  LinkText1: styled.div`
+    font-size: 24px;
+    font-weight: bold;
+    color: ${() => MainColor};
+  `,
+
+  LinkText2: styled.div`
+    font-size: 24px;
+    font-weight: bold;
+    color: ${() => DisableMain};
   `,
 };
 

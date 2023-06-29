@@ -2,7 +2,13 @@ import React, { useState, useRef } from "react";
 import styled from "styled-components";
 import { useNavigate } from "react-router-dom";
 import { DogInput, MobileDogInput } from "../images";
-import { Header, DisableMain, MainColor, Loading } from "../components";
+import {
+  Header,
+  DisableMain,
+  MainColor,
+  Loading,
+  MHeader,
+} from "../components";
 
 const Main = () => {
   const [selectedImage, setSelectedImage] = useState(null); //이미지 선택 저장
@@ -37,7 +43,8 @@ const Main = () => {
   return (
     <>
       {isLoading && <Loading />}
-      <Header />
+      {isMobile ? <MHeader /> : <Header />}
+
       <S.Container>
         <S.Container2>
           <S.UploadBox
