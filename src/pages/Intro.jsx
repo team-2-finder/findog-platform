@@ -6,9 +6,11 @@ const Intro = () => {
   return (
     <S.Container>
       <S.Titleimg src={Title} alt="title" />
+      <br />
       <Link to="/inputImage" style={{ marginBottom: "16px" }}>
         <S.LinkText src={goImg} alt="img" />
       </Link>
+      <br />
       <Link to="/research">
         <S.LinkText src={goResearch} alt="research" />
       </Link>
@@ -28,13 +30,15 @@ const S = {
     margin-bottom: 60px;
   `,
 
+  tempArea: styled.div`
+    min-height: 10vh;
+  `,
   LinkText: styled.img`
     margin-bottom: 16px;
     cursor: pointer;
   `,
   ImgArea: styled.div`
     width: 100%;
-    background-color: pink;
   `,
   LogoImg: styled.img`
     margin-top: 16px;
