@@ -2,14 +2,13 @@ import React from "react";
 import styled from "styled-components";
 import { closeBtn } from "../images";
 import { Label } from "./";
-import { MainColor } from "../components";
 
 function DetailModal({ open, close, data }) {
   return (
     <>
       {open ? (
         <S.Background>
-          <S.Container>
+          {/* <S.Container>
             <div>
               <S.CloseButton src={closeBtn} onClick={close} />
             </div>
@@ -31,7 +30,28 @@ function DetailModal({ open, close, data }) {
               </div>
             </S.Row>
             <S.Inquiry>입양 문의 하기</S.Inquiry>
+          </S.Container> */}
+          <S.Container>
+            <div>
+              <S.CloseButton src={closeBtn} onClick={close} />
+            </div>
+            <S.Row>
+              <S.InModal>
+                <S.InImg src={data.imgUrl} alt="img" />
+              </S.InModal>
+              <div>
+                <Label text={"접수일"} data={data.date} />
+                <Label text={"품종"} data={data.kindCd} />
+                <Label
+                  text={"성별/중성화여부"}
+                  data={data.sexCd + " / " + data.neuterYn}
+                />
+                <Label text={"무게"} data={data.weight} />
+                <Label text={"특이사항"} data={data.notice} />
+              </div>
+            </S.Row>
           </S.Container>
+          {/* <S.Inquiry>입양 문의 하기</S.Inquiry> */}
         </S.Background>
       ) : null}
     </>

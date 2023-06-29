@@ -14,15 +14,33 @@ import DetailModal from "../components/DetailModal";
 
 const Research = () => {
   const [list, setList] = useState([]);
+  const [isClick, setIsClick] = useState(false);
   async function getData() {
     try {
+      var parmas = {};
+      if (kindSelected !== "") {
+        parmas.kind_cd = kindSelected;
+      } else {
+        delete parmas.kind_cd;
+      }
+      if (neuterYnSelected !== "") {
+        parmas.neuter_yn = neuterYnSelected;
+      } else {
+        delete parmas.neuter_yn;
+      }
+      if (sexSelected !== "") {
+        parmas.sex_cd = sexSelected;
+      } else {
+        delete parmas.sex_cd;
+      }
       const response = await axios.get("https://findog.buttercrab.net/api/", {
-        params: {
-          // happen_dt: happenDtSelected,
-          // kind_cd: kindSelected,
-          // sex_cd: sexSelected,
-          // neuter_yn: neuterYnSelected,
-        },
+        params: parmas,
+        // params: {
+        // happen_dt: "F",
+        // kind_cd: kindSelected,
+        // sex_cd: "F",
+        // neuter_yn: neuterYnSelected,
+        // },
       });
       console.log(response.data);
       await setList(response.data);
@@ -35,8 +53,11 @@ const Research = () => {
     getData();
   }, []);
 
+  useEffect(() => {
+    getData();
+  }, [isClick]);
   //페이지 네이션
-  const totalItems = 1027; // 전체 아이템 개수
+  const totalItems = list.length; // 전체 아이템 개수
   const itemsPerPage = 30; // 한 페이지에 보여줄 아이템 개수
 
   const totalPages = Math.ceil(totalItems / itemsPerPage); // 전체 페이지 개수
@@ -86,7 +107,7 @@ const Research = () => {
       selectedValue === "전체" ? "" : selectedValue === "수컷" ? "M" : "F"
     );
 
-    // console.log(sexSelected);
+    console.log(sexSelected);
   };
 
   //품종
@@ -95,7 +116,8 @@ const Research = () => {
 
   const handleKindCd = (e) => {
     const selectedValue = e.target.value;
-    setKindSelected(selectedValue === "전체" ? "" : selectedValue);
+    setKindSelected(selectedValue === "전체" ? "" : "[개] " + selectedValue);
+    console.log(kindSelected);
   };
 
   //중성화여부
@@ -117,7 +139,13 @@ const Research = () => {
         <S.HeaderBox style={{ display: "inline" }}>
           강아지 목록이에요.
         </S.HeaderBox>
-        <S.FilterButton onClick={getData}>필터 검색 결과 보기</S.FilterButton>
+        <S.FilterButton
+          onClick={() => {
+            setIsClick((res) => !res);
+          }}
+        >
+          필터 검색 결과 보기
+        </S.FilterButton>
         <S.Filter>
           <S.FilterText>접수일</S.FilterText>
           <S.Select
@@ -132,13 +160,12 @@ const Research = () => {
               </option>
             ))}
           </S.Select>
-          <S.FilterText>품종</S.FilterText>
+          <S.FilterText>성별</S.FilterText>
 
           <S.Select
             onChange={handleSexCd}
             defaultValue={sexCdList[0]}
-            value={sexSelected}
-            // style={{ width: "400px" }}
+            // value={sexSelected} // value 속성 제거
           >
             {sexCdList.map((item) => (
               <option value={item} key={item}>
@@ -146,12 +173,12 @@ const Research = () => {
               </option>
             ))}
           </S.Select>
-          <S.FilterText>성별</S.FilterText>
+          <S.FilterText>품종</S.FilterText>
 
           <S.Select
             onChange={handleKindCd}
             defaultValue={kindCdList[0]}
-            value={kindSelected}
+            // value={kindSelected}
           >
             {kindCdList.map((item) => (
               <option value={item} key={item}>
@@ -219,20 +246,6 @@ const Research = () => {
           </S.PagenationButton>
         </S.Pagenation>
       </S.Container>
-      <div>
-        <S.PagenationButton
-          onClick={goToPreviousPage}
-          disabled={currentPage === 1}
-        >
-          이전 페이지
-        </S.PagenationButton>
-        <span>
-          현재 페이지: {currentPage} / {totalPages}
-        </span>
-        <button onClick={goToNextPage} disabled={currentPage === totalPages}>
-          다음 페이지
-        </button>
-      </div>
     </>
   );
 };
