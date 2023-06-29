@@ -100,7 +100,7 @@ const S = {
     height: 350px;
     object-fit: cover;
     @media screen and (max-width: 393px) {
-      margin-top: 16px;
+      margin-top: 8px;
       width: 280px;
       height: 200px;
     }

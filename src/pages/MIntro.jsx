@@ -1,7 +1,6 @@
 import React from "react";
 import styled from "styled-components";
 import { Logo, Title, mgoImg, mgoResearch } from "../images";
-import { MBottomNavBar } from "../components";
 import { Link } from "react-router-dom";
 const MIntro = () => {
   return (

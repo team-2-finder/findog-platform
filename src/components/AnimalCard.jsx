@@ -85,7 +85,7 @@ const S = {
     cursor: pointer;
     @media screen and (max-width: 393px) {
       margin: 0;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
       padding: 8px;
       width: auto;
       height: auto;

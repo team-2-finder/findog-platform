@@ -71,8 +71,7 @@ const S = {
     cursor: pointer;
     @media screen and (max-width: 393px) {
       margin: 0;
-      margin-bottom: 8px;
-      padding: 8px;
+      margin-bottom: 16px;
       width: auto;
       height: auto;
     }
@@ -123,6 +122,9 @@ const S = {
     padding-block: 8px;
     font-weight: 700;
     border-radius: 0 0 20px 20px;
+    @media screen and (max-width: 393px) {
+      width: 100%;
+    }
   `,
 };
 export default SimilarityCard;
