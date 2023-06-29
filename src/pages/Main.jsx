@@ -62,7 +62,7 @@ const Main = () => {
       .then((response) => {
         // 업로드 성공 후에 수행할 작업
         setLoading(false);
-        navigate("/similarity");
+        navigate("/similarity", { arr: response.body });
       })
       .catch((error) => {
         // 업로드 실패 시에 수행할 작업
