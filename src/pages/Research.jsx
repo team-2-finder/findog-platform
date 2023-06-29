@@ -142,7 +142,6 @@ const Research = () => {
     <>
       {isMobile ? <MHeader /> : <Header />}
       <S.Container>
-
         <S.HeaderBox>지금까지 등록된</S.HeaderBox>
         <S.HeaderBox style={{ display: "inline" }}>
           강아지 목록이에요.
@@ -207,7 +206,6 @@ const Research = () => {
         </S.Filter>
         <div style={{ height: "50px" }}></div>
 
-
         <S.AnimalContainer>
           {list.length > 0
             ? getCurrentPageItems().map((res) => (
@@ -220,8 +218,9 @@ const Research = () => {
                   imgUrl={res.filename}
                   notice={res.noticeComment}
                   colorCd={res.colorCd}
-                  caretel={res.caretel}
+                  caretel={res.careTel}
                   weight={res.weight}
+                  careNm={res.careNm}
                 />
               ))
             : "로딩중"}

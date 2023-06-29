@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { useState } from "react";
-import { MainColor, DetailModal2 } from "./";
+import { MainColor, DetailModal } from "./";
 
 const SimilarityCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -53,7 +53,7 @@ const SimilarityCard = ({ date, kindCd, sexCd, neuterYn, imgUrl }) => {
         </S.Row>
         <S.SimilarityBox>사진과 99% 일치해요</S.SimilarityBox>
       </S.Container>
-      <DetailModal2 open={modalOpen} close={closeModal} data={testData} />
+      <DetailModal open={modalOpen} close={closeModal} data={testData} />
     </>
   );
 };
