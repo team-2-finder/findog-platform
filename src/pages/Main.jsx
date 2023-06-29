@@ -195,7 +195,7 @@ const S = {
 
   MNextpageBtn: styled.div`
     background: ${() => MainColor};
-    border-radius: 20px;
+    border-radius: 8px;
     color: white;
     font-size: 24px;
     font-weight: 700;
@@ -208,7 +208,7 @@ const S = {
 
   MNextpageBtnNon: styled.div`
     background: ${() => DisableMain};
-    border-radius: 20px;
+    border-radius: 8px;
     color: white;
     font-size: 24px;
     font-weight: 700;
