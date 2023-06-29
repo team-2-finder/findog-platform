@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
-import { Header, AnimalCard } from "../components";
+import { Header, AnimalCard, MHeader } from "../components";
 import styled from "styled-components";
 
 const Research = () => {
@@ -23,6 +23,8 @@ const Research = () => {
   // useEffect(() => {
   //   // getData();
   // }, []);
+
+  const isMobile = window.innerWidth <= 393;
   const arr = [
     {
       data: "2023/06/23",
@@ -91,7 +93,7 @@ const Research = () => {
   ];
   return (
     <>
-      <Header />
+      {isMobile ? <MHeader /> : <Header />}
       <S.Container>
         <S.HeaderBox>지금까지 등록된</S.HeaderBox>
         <S.HeaderBox>강아지 목록이에요.</S.HeaderBox>
