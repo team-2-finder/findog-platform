@@ -4,14 +4,11 @@ import Loading from "./Loading";
 import { MainColor, DisableMain } from "./Colors";
 import AnimalCard from "./AnimalCard";
 import SimilarityCard from "./SimilarityCard";
-import DropDown from "./DropDown";
 
 import Label from "./Label";
 import DetailModal from "./DetailModal";
 import DetailModal2 from "./DetailModal2";
 import MBottomNavBar from "./MBottomNavBar";
-import DropDown from "./DropDown";
-
 export {
   Header,
   MainColor,
@@ -19,11 +16,9 @@ export {
   Loading,
   AnimalCard,
   SimilarityCard,
-  DropDown,
   MHeader,
   Label,
   DetailModal,
   DetailModal2,
   MBottomNavBar,
-  DropDown,
 };
